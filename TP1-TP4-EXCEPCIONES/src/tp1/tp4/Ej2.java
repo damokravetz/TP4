@@ -13,9 +13,20 @@ public class Ej2 {
 		System.out.println("La variable \"numero\" actualmente vale " + numero + ".");
 		System.out.println("Ingrese un nuevo valor para \"numero\":");
 		
-		// Completar
-		
+		System.out.println(numero);
+		try{
+			numero=input.nextInt();
+			input.nextInt();
+		}catch(InputMismatchException e){
+			System.out.println("error");
+			e.printStackTrace();
+		}catch(Exception e){
+			System.out.println("error");
+			e.printStackTrace();
+		}
+		System.out.println(numero);
 		input.close();
+		
 	}
 
 }
