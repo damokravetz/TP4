@@ -10,15 +10,13 @@ public class Ej3 {
 		int numero = 0;
 		boolean ok = false;
 		while (!ok) {
-			input.nextLine();
 			try {
 				System.out.println("Ingresar un numero");
 				numero=input.nextInt();
 				ok=true;
 			}catch(Exception e) {
-				System.out.println("error");
-				e.printStackTrace();
-				
+				System.out.println("Numero invalido");
+				input.nextLine();
 			}
 		}
 		input.close();
