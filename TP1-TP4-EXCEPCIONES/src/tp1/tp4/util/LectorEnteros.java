@@ -1,5 +1,6 @@
 package tp1.tp4.util;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class LectorEnteros {
@@ -19,34 +20,69 @@ public class LectorEnteros {
 		System.out.printf(MASCARA_MENSAJE_CARGA_ENTERO, mensaje);
 		return Integer.parseInt(scanner.nextLine());
 	}
-	public LectorEnteros(Scanner scanner) throws ... {
+	public LectorEnteros(Scanner scanner) throws IllegalArgumentException {
 		
-			// Completar
-				throw new IllegalArgumentException(MENSAJE_ERROR_SCANNER_NULL);
+		if(scanner==null) {
+			throw new IllegalArgumentException(MENSAJE_ERROR_SCANNER_NULL);
+		}else {
+			this.scanner = scanner;
 		}
-		this.scanner = scanner;
 	}
 
-	public int pedir(String mensaje) throws...{
+	public int pedir(String mensaje) /*throws Exception*/{
 		int num = 0;
 		boolean ok = false;
-		// Completar
-			
+		/*System.out.println(mensaje);
+		num=scanner.nextInt();
+		scanner.nextLine();
+		return num;*/
+		while (!ok) {
+			try {
+				System.out.println(mensaje);
+				num=scanner.nextInt();
+				ok=true;
+			}catch(InputMismatchException e) {
+				System.out.println("Numero invalido");
+				e.printStackTrace();
+				scanner.nextLine();
+			}
+		}
 		return num;
 	}
 
-	public int pedir(String mensaje, RangoDeEnteros rangoValido) throws...{
+	public int pedir(String mensaje, RangoDeEnteros rangoValido) throws IllegalArgumentException{
 		int num = 0;
+		String msje;
+		if(rangoValido==null||mensaje==null) {
+			throw new IllegalArgumentException(MENSAJE_ERROR_RANGO_NULL);
+		}else {
+				if(mensaje=="") {
+					msje=MENSAJE_CARGA_ENTERO;
+				}else {
+					msje=mensaje;
+				}
+				boolean ok = false;
+				num=pedir(msje);
+				ok=rangoValido.incluye(num);
+				while(!ok) {
+				System.out.println(MENSAJE_FUERA_DE_RANGO);
+				num=pedir(msje);
+				ok=rangoValido.incluye(num);
+			    }
+		}
 		// Completar
-		
 		return num;
 	}
 
-	public int pedir(String mensaje, int limiteA, int limiteB)  throws... {
+	public int pedir(String mensaje, int limiteA, int limiteB)  throws IllegalArgumentException {
 		// Completar
-		
+		String msje=mensaje+"entre "+limiteA+" y "+limiteB;
+		RangoDeEnteros rango= new RangoDeEnteros(limiteA, limiteB);
+		int num=0;
+		num=pedir(msje, rango);
+		return num;
 	}
-
+/*
 	public int pedir(String mensaje, RangoDeEnteros rango, int valorFinCarga) throws... {
 		int num = 0;
 		// Completar
@@ -68,4 +104,5 @@ public class LectorEnteros {
 		// Completar
 		return num;
 	}
+	*/
 }

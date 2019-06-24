@@ -14,8 +14,9 @@ public class Ej3 {
 				System.out.println("Ingresar un numero");
 				numero=input.nextInt();
 				ok=true;
-			}catch(Exception e) {
+			}catch(InputMismatchException e) {
 				System.out.println("Numero invalido");
+				e.printStackTrace();
 				input.nextLine();
 			}
 		}

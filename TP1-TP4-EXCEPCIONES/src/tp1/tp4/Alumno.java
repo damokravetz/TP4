@@ -6,7 +6,7 @@ public class Alumno extends Persona {
 	public static final RangoDeEnteros RANGO_NRO_DOCUMENTO = new RangoDeEnteros(1000000, 999999999);
 	private int numeroLegajo;
 
-	public Alumno(int numeroLegajo, String nombreCompleto, int anioNacimiento){
+	public Alumno(int numeroLegajo, String nombreCompleto, int anioNacimiento) throws IllegalArgumentException{
 		super(nombreCompleto, anioNacimiento);
 		setNumeroLegajo(numeroLegajo);
 	}
@@ -17,8 +17,11 @@ public class Alumno extends Persona {
 
 	public void setNumeroLegajo(int numeroLegajo) throws IllegalArgumentException{
 		// Completar
-		
-		this.numeroLegajo = numeroLegajo;
+		if(RANGO_NRO_DOCUMENTO.incluye(numeroLegajo)) {
+			this.numeroLegajo = numeroLegajo;
+		}else {
+			throw new IllegalArgumentException();
+		}
 	}
 	@Override
 	public String toString(){
