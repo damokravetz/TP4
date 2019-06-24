@@ -19,11 +19,13 @@ public class Ejer5 {
 			// Completar
 
 			// Pido nombre completo
+			input.nextLine();
 			System.out.println("Ingresar nombre completo del alumno");
 			nombreCompleto=input.nextLine();
 			// Completar
 
 			// Pido año de nacimiento
+			input.nextLine();
 			System.out.println("Ingresar año de nacimiento del alumno");
 			anioNacimiento=input.nextInt();
 			// Completar

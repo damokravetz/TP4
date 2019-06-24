@@ -76,8 +76,9 @@ public class LectorEnteros {
 
 	public int pedir(String mensaje, int limiteA, int limiteB)  throws IllegalArgumentException {
 		// Completar
-		String msje=mensaje+"entre "+limiteA+" y "+limiteB;
+		
 		RangoDeEnteros rango= new RangoDeEnteros(limiteA, limiteB);
+		String msje=mensaje+" entre "+rango.getLimiteInferior()+" y "+rango.getLimiteSuperior();
 		int num=0;
 		num=pedir(msje, rango);
 		return num;
