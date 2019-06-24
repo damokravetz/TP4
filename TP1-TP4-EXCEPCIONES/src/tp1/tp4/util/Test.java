@@ -24,7 +24,7 @@ public class Test {
 			System.out.println("Edad de la persona: "+edad+", no vive");
 		}else {
 			edad=anioActual-nacimiento;
-			System.out.println("Edad de la persona: "+edad", vive");
+			System.out.println("Edad de la persona: "+edad+", vive");
 		}
 		
 		
