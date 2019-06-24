@@ -20,7 +20,7 @@ public class Alumno extends Persona {
 		if(RANGO_NRO_DOCUMENTO.incluye(numeroLegajo)) {
 			this.numeroLegajo = numeroLegajo;
 		}else {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("dni fuera de rango");
 		}
 	}
 	@Override
